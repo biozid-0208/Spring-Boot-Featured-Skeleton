@@ -5,6 +5,7 @@ class Route {
         companion object {
             private const val API = "/api"
             private const val VERSION = "/v1"
+            private const val ADMIN = "/admin"
 
             // Address API's
             const val SEARCH_ADDRESSES = "$API$VERSION/addresses"
@@ -47,6 +48,42 @@ class Route {
             const val FIND_VILLAGES = "$API$VERSION/villages/{id}"
             const val UPDATE_VILLAGES = "$API$VERSION/villages/{id}"
             const val DELETE_VILLAGES = "$API$VERSION/villages/{id}"
+
+            // Imports batch
+            const val IMPORT_USERS = "$API$VERSION/admin/imports/users"
+
+            /**
+             * WEBSOCKET - CHAT
+             */
+            // Chat Rooms
+            const val SEARCH_CHATROOMS = "$API$VERSION/chat/chatrooms"
+            const val CREATE_CHATROOM = "$API$VERSION/chat/chatrooms"
+            const val FIND_CHATROOM = "$API$VERSION/chat/chatrooms/{id}"
+            const val UPDATE_CHATROOM = "$API$VERSION/chat/chatrooms/{id}"
+            const val DELETE_CHATROOM = "$API$VERSION/chat/chatrooms/{id}"
+
+            // Chat
+            const val CHAT = "/chat"
+
+            // Roles (Admin)
+            const val WEB_RELOAD_APPLICATION_CONTEXT = "$ADMIN/roles/reload-applicatication-context"
+            const val WEB_ROLES_PAGE = "$ADMIN/roles"
+            const val WEB_ROLE_DETAILS_PAGE = "$ADMIN/roles/{role_id}"
+            const val WEB_ROLE_CREATE = "$ADMIN/roles"
+            const val WEB_ROLE_UPDATE = "$ADMIN/roles/{role_id}"
+
+            // Privileges (Admin)
+            const val WEB_PRIVILEGES_PAGE = "$ADMIN/privileges"
+            const val WEB_PRIVILEGE_CREATE = "$ADMIN/privileges"
+            const val WEB_PRIVILEGE_DETAILS_PAGE = "$ADMIN/privileges/{privilege_id}"
+            const val WEB_PRIVILEGE_UPDATE = "$ADMIN/privileges/{privilege_id}"
+
+            // Users (Admin)
+            const val WEB_USERS_SEARCH_PAGE = "$ADMIN/users"
+            const val WEB_USERS_CREATE = "$ADMIN/users"
+            const val WEB_USERS_DETAILS_PAGE = "$ADMIN/users/{user_id}"
+            const val WEB_USERS_UPDATE = "$ADMIN/users/{user_id}"
+            const val WEB_TOGGLE_ENABLED = "$ADMIN/users/{user_id}/toggle-access"
 
         }
     }

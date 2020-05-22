@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "m_users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"username", "email"})
-})
+@Table(name = "m_users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User extends BaseEntity {
 
@@ -77,6 +75,13 @@ public class User extends BaseEntity {
     public boolean isAdmin() {
         return this.roles != null &&
                 this.roles.stream().anyMatch(Role::isAdmin);
+    }
+
+    public boolean canLogin() {
+        return this.enabled
+                && this.accountNonExpired
+                && this.accountNonLocked
+                && this.credentialsNonExpired;
     }
 
 

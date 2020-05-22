@@ -17,6 +17,8 @@ class Privilege() : BaseEntity() {
     @Column(nullable = false, unique = true)
     lateinit var label: String
 
+    var description: String? = null
+
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
     @CollectionTable(name = "privileges_access_urls")
@@ -33,5 +35,9 @@ class Privilege() : BaseEntity() {
 
     enum class Privileges(val label: String) {
         ADMINISTRATION("Administration"), ACCESS_USER_RESOURCES("Access User Resources")
+    }
+
+    public fun accessesStr(): String {
+        return this.accessUrls.joinToString()
     }
 }
